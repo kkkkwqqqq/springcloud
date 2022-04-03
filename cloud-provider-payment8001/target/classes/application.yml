@@ -5,6 +5,11 @@ server:
 spring:
   application:
     name: cloud-payment-service
+    zipkin:
+      base-url: http://localhost:9411
+      sleuth:
+        sampler:   #采样率 值位于0-1之间 1的话监控的比较细致
+          probability: 1
   datasource:
     url: jdbc:mysql://localhost:3306/db2019?useSSL=false&useUnicode=true&characterEncoding=utf-8
     driver-class-name: org.gjt.mm.mysql.Driver   #mysql驱动包

@@ -11,8 +11,20 @@ spring:
           search-paths:
             - springcloud-config2   #仓库名字
       label: main   #分支名字
+
+#Rabitmq相关配置
+rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 eureka:
   client:
     service-url:
-      defaultZone:  http://localhost:7001/eureka
-
+      defaultZone: http://localhost:7001/eureka
+#Rabitmq相关配置,暴露bus刷新配置的端点
+management:
+  endpoints:  #暴露bus刷新配置的端点
+    web:
+      exposure:
+        include: 'bus-refresh'
